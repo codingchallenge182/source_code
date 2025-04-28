@@ -17,6 +17,7 @@ To be able to develop and build this application you need:
 1. Ensure you are in the root of `coding_test_challenge` repo
 2. Run `docker compose build`
 3. Run `docker compose up -d`
+Note: it will take a few minutes for the backend Dockerfile to build 
 
 The frontend will be accessible at: [http://localhost:3000/tasks](http://localhost:3000/tasks)  
 The backend can be accessed at: [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)

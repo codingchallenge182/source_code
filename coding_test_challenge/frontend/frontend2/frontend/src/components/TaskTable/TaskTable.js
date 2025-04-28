@@ -7,7 +7,6 @@ import {getTask, createTask, deleteTask, updateTask, findTaskById} from "../../s
 const TaskTable = () => {
 
     const [tasks, setTasks] = useState([]);
-    const [selectedOption, setSelectedOption] = useState();
     const [showForm, setShowForm] = useState(false);
     const [searchId, setSearchId] = useState('');
     const [taskToUpdate, setTaskToUpdate] = useState(null);
@@ -31,7 +30,7 @@ const TaskTable = () => {
         title: '',
         description: '',
         due_date: '',
-        status: ''
+        status: 'Not Started'
     };
 
 
@@ -59,7 +58,7 @@ const TaskTable = () => {
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
-// CRUD Backend Actions
+
     const handleDelete = async (taskId) => {
         try {
             await deleteTask(taskId);
@@ -128,7 +127,6 @@ const TaskTable = () => {
         setTasks(allTasks);
     };
 
-// Load data initially
     const loadData = async () => {
         try {
             const result = await getTask();
@@ -285,7 +283,7 @@ const TaskTable = () => {
                                     Status:
                                     <select
                                         name="status"
-                                        value={formData.status || ""}
+                                        value={formData.status}
                                         onChange={handleInputChange}
                                     >
                                         {STATUS_OPTIONS.map((option) => (
